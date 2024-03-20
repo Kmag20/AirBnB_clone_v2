@@ -10,12 +10,14 @@ class FileStorage:
 
     def all(self, cls=None):
         """ Returns the LIST of objects of one type of class"""
-        objdict = {}
-        for key, obj in FileStorage.__objects.items():
-            clsname = key.partition('.')[0]
-            if clsname == cls.__name__:
-                objdict.update({key: obj})
-        return objdict
+        if cls is not None:
+            objdict = {}
+            for key, obj in FileStorage.__objects.items():
+                clsname = key.partition('.')[0]
+                if clsname == cls.__name__:
+                    objdict.update({key: obj})
+            return objdict
+        return self.__objects
 
     def new(self, obj):
         """Adds new object to storage dictionary"""
