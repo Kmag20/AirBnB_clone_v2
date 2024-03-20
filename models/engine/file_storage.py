@@ -10,13 +10,12 @@ class FileStorage:
 
     def all(self, cls=None):
         """ Returns the LIST of objects of one type of class"""
+        objdict = {}
         for key, obj in FileStorage.__objects.items():
-            objlist = []
             clsname = key.partition('.')[0]
-            if clsname == cls:
-                objlist.append(obj)
-        return objlist
-        # return FileStorage.__objects
+            if clsname == cls.__name__:
+                objdict.update({key: obj})
+        return objdict
 
     def new(self, obj):
         """Adds new object to storage dictionary"""
@@ -30,7 +29,7 @@ class FileStorage:
             for key, val in temp.items():
                 temp[key] = val.to_dict()
             json.dump(temp, f, indent=2)
-            
+
     def delete(self, obj=None):
         """ Delete obj from __objects if obj exists """
         if obj:
