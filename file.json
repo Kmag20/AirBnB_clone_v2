@@ -1,9 +1,22 @@
 {
-  "State.3b7e656e-608f-4a20-b884-71672f869bf8": {
-    "id": "3b7e656e-608f-4a20-b884-71672f869bf8",
-    "created_at": "2024-04-02T15:11:01.645037",
-    "updated_at": "2024-04-02T15:11:01.645072",
-    "name": "California",
-    "__class__": "State"
+  "BaseModel.29b6e0ba-3cb5-4418-a337-208e12270e41": {
+    "id": "29b6e0ba-3cb5-4418-a337-208e12270e41",
+    "created_at": "2024-04-02T20:13:45.035895",
+    "updated_at": "2024-04-02T20:13:45.035923",
+    "__class__": "BaseModel"
+  },
+  "City.e19f0c46-00f5-47cf-bc8c-303a3e1e1a56": {
+    "id": "e19f0c46-00f5-47cf-bc8c-303a3e1e1a56",
+    "created_at": "2024-04-02T20:13:54.838210",
+    "updated_at": "2024-04-02T20:13:54.838283",
+    "__class__": "City"
+  },
+  "City.747ebe95-c9bb-4d6e-8f4f-8dde862bb15c": {
+    "state_id": "001",
+    "name": "Arizona",
+    "created_at": "2024-04-02T17:18:40.283287",
+    "updated_at": "2024-04-02T17:18:40.283298",
+    "id": "747ebe95-c9bb-4d6e-8f4f-8dde862bb15c",
+    "__class__": "City"
   }
 }

@@ -6,10 +6,7 @@ from models.base_model import BaseModel
 class Place(BaseModel):
     """ A place to stay """
     def __init__(self, *args, **kwargs):
-        super().__init__()
-        for key, value in kwargs.items():
-            if key != '__class__':
-                setattr(self, key, value)
+        super().__init__(*args, **kwargs)
     # city_id = ""
     # user_id = ""
     # name = ""

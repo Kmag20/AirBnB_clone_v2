@@ -133,7 +133,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
                 return
             new_instance = HBNBCommand.classes[_cmd](**my_dict)
-            # print(new_instance)
+            print(new_instance)
             storage.save()
             print(new_instance.id)
         else:
