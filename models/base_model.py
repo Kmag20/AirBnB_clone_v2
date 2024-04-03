@@ -7,10 +7,10 @@ import sqlalchemy
 from sqlalchemy import Column, String, DateTime 
 from sqlalchemy.ext.declarative import declarative_base
 
-# if models.storage_t == "db":
-Base = declarative_base()
-# else:
-#     Base = object
+if models.storage_t == "db":
+    Base = declarative_base()
+else:
+    Base = object
 
 time = "%Y-%m-%dT%H:%M:%S.%f"
 
@@ -18,10 +18,10 @@ time = "%Y-%m-%dT%H:%M:%S.%f"
 class BaseModel:
     """A base class for all hbnb models"""
 
-    # if models.storage == "db":
-    # id = Column(String(60), primary_key=True)
-    # created_at = Column(Datetime, default=datetime.utcnow)
-    # updated_at = Column(DateTime, default=datetime.utcnow)
+    if models.storage_t == "db":
+        id = Column(String(60), primary_key=True)
+        created_at = Column(DateTime, default=datetime.utcnow())
+        updated_at = Column(DateTime, default=datetime.utcnow())
 
     def __init__(self, *args, **kwargs):
         """Instatntiates a new model"""
@@ -30,7 +30,6 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
-            storage.new(self)
         else:
             from models import storage
             for key, value in kwargs.items():
@@ -46,7 +45,6 @@ class BaseModel:
                 self.updated_at = datetime.utcnow()
             if kwargs.get("id", None) is None:
                 self.id = str(uuid.uuid4())
-            storage.new(self)
 
     def __str__(self):
         """Returns a string representation of the instance"""

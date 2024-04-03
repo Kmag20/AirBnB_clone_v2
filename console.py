@@ -126,6 +126,8 @@ class HBNBCommand(cmd.Cmd):
             my_dict = {}
             for pair in pairs:
                 key, value = map(str.strip, pair.split('='))
+                if '_' in value:
+                    value = value.replace('_', ' ', 1)
                 if value[0] == value[-1] and value.startswith(("'", '"')):
                     value = value[1:-1]
                 my_dict[key] = value
@@ -133,9 +135,8 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
                 return
             new_instance = HBNBCommand.classes[_cmd](**my_dict)
-            print(new_instance)
-            storage.save()
             print(new_instance.id)
+            new_instance.save()
         else:
             if not args:
                 print("** class name missing **")
@@ -144,8 +145,8 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
                 return
             new_instance = HBNBCommand.classes[args]()
-            storage.save()
             print(new_instance.id)
+            new_instance.save()
 
     def help_create(self):
         """ Help information for the create method """
@@ -227,11 +228,11 @@ class HBNBCommand(cmd.Cmd):
             if args not in HBNBCommand.classes:
                 print("** class doesn't exist **")
                 return
-            for k, v in storage._FileStorage__objects.items():
+            for k, v in storage.all(HBNBCommand.classes[args]).items():
                 if k.split('.')[0] == args:
                     print_list.append(str(v))
         else:
-            for k, v in storage._FileStorage__objects.items():
+            for k, v in storage.all().items():
                 print_list.append(str(v))
 
         print(print_list)
