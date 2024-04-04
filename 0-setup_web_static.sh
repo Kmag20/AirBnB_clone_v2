@@ -37,11 +37,11 @@ echo "[+] Symbolic link created"
 sudo chown -R ubuntu:ubuntu /data/
 
 # Remove the default Nginx config files
-sudo rm -rf /etc/nginx/sites-available/default
-sudo rm -rf /etc/nginx/sites-enabled/default
+sudo rm -f /etc/nginx/sites-available/default
+sudo rm -f /etc/nginx/sites-enabled/default
 
 # Create a new configuration file
-cat > /etc/nginx/sites-available/default << EOF
+cat > /etc/nginx/sites-available/default.conf << EOF
 server {
     listen 80 default_server;
     listen [::]:80 default_server;
