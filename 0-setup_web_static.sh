@@ -14,7 +14,7 @@ mkdir -p /data/web_static/releases/test/
 mkdir -p /data/web_static/shared/
 
 releases_path="/data/web_static/releases"
-test_path="${releases_path}/test/"
+test_path="${releases_path}/test"
 current_path="/data/web_static/current"
 html_file="${test_path}/index.html"
 
