@@ -29,7 +29,7 @@ current_path="/data/web_static/current"
 html_file="${test_path}/index.html"
 
 #create a simple html file for testing
-echo "<html><body><h1>Test HTML File</h1><body></html>" > "$html_file"
+echo "<html><head></head><body><h1>Holberton School</h1><body></html>" > "$html_file"
 
 #creating a symbolic link
 if [ -L "$current_path" ]; then
@@ -53,7 +53,7 @@ server {
     listen 80 default_server;
     listen [::]:80 default_server;
 
-    root /var/www/html;
+    root /data/web_static/current;
     index index.html index.htm index.nginx-debian.html;
 
     location /hbnb_static/ {
@@ -64,32 +64,7 @@ server {
     server_name _;
 
     add_header X-Served-By $HOSTNAME;
-
-    location / {
-        try_files \$uri \$uri/ =404;
-    }
-
-    location /redirect_me {
-        return 301 https://google.com;
-    }
-
-    error_page 404 /404.html;
-
-    location = /404.html {
-        internal;
-        add_header Content-Type text/html;
-        return 404 "Ceci n'est pas une page";
-    }
 }
 EOF
-
-# Enable the new configuration file
-ln -s /etc/nginx/sites-available/default.conf /etc/nginx/sites-enabled/
-
-# Create the /var/www/html directory if it doesn't exist
-mkdir -p /var/www/html
-
-# Create the index.html file
-echo "Hello World!" > /var/www/html/index.html
 
 sudo service nginx restart
