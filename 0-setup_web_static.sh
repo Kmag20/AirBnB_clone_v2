@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Bash script that sets up your web servers for the deployment of web_static. 
+# Bash script that sets up your web servers for
+# the deployment of web_static. 
 
 # Update package lists and install nginx
 if ! dpkg -l | grep -q nginx; then
@@ -19,7 +20,8 @@ current_path="/data/web_static/current"
 html_file="${test_path}/index.html"
 
 #create a simple html file for testing
-echo "<html><head></head><body><h1>Holberton School</h1><body></html>" > "$html_file"
+echo "<html><head></head><body><h1>Holberton School</h1><body></html>"
+> "$html_file"
 
 #creating a symbolic link
 if [ -L "$current_path" ]; then
