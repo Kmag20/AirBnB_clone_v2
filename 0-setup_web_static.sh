@@ -10,19 +10,9 @@ else
 fi
 
 # Create folders in they did not exist
-folders=("/data/" "/data/web_static/" "data/web_static/releases" 
-	 "/data/web_static/shared/" "/data/web_static/releases/test/")
+mkdir -p /data/web_static/releases/test/
+mkdir -p /data/web_static/shared/
 
-for folder in folders; do
-	if [ ! -d "$folder" ]; then
-		mkdir -p "$folder"
-		echo "[+] Folder $folder created successfully."
-	else
-		echo "[+] Folder $folder already exists."
-	fi
-done
-
-# paths
 releases_path="/data/web_static/releases"
 test_path="${releases_path}/test/"
 current_path="/data/web_static/current"
@@ -34,7 +24,7 @@ echo "<html><head></head><body><h1>Holberton School</h1><body></html>" > "$html_
 #creating a symbolic link
 if [ -L "$current_path" ]; then
 	rm "$current_path"
-	echo "[-] Link already exists"
+	echo "[-] Existing link removed"
 fi
 
 ln -sf "$test_path" "$current_path"
