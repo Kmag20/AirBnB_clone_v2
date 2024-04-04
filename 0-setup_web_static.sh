@@ -37,7 +37,7 @@ if [ -L "$current_path" ]; then
 	echo "[-] Link already exists"
 fi
 
-ln -sF "$test_path" "$current_path"
+ln -sf "$test_path" "$current_path"
 echo "[+] Symbolic link created"
 
 # change ownership recursively
@@ -53,7 +53,7 @@ server {
     listen 80 default_server;
     listen [::]:80 default_server;
 
-    root /data/web_static/current;
+    root /data/web_static/current/;
     index index.html index.htm index.nginx-debian.html;
 
     location /hbnb_static/ {
