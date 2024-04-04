@@ -21,8 +21,8 @@ html_file="${test_path}/index.html"
 
 #create a simple html file for testing
 echo "<html><head></head><body>"\
-"<h1>Holberton School</h1>"\
-"</body></html>" > "$html_file"
+     "<h1>Holberton School</h1>"\
+     "</body></html>" > "$html_file"
 
 #creating a symbolic link
 if [ -L "$current_path" ]; then
