@@ -41,7 +41,7 @@ rm -rf /etc/nginx/sites-available/default
 rm -rf /etc/nginx/sites-enabled/default
 
 # Create a new configuration file
-cat > /etc/nginx/sites-available/default.conf << EOF
+cat > /etc/nginx/sites-available/default << EOF
 server {
     listen 80 default_server;
     listen [::]:80 default_server;
