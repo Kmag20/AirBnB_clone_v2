@@ -34,11 +34,11 @@ ln -sf "$test_path" "$current_path"
 echo "[+] Symbolic link created"
 
 # change ownership recursively
-chown -R ubuntu:ubuntu /data/
+sudo chown -R ubuntu:ubuntu /data/
 
 # Remove the default Nginx config files
-rm -rf /etc/nginx/sites-available/default
-rm -rf /etc/nginx/sites-enabled/default
+sudo rm -rf /etc/nginx/sites-available/default
+sudo rm -rf /etc/nginx/sites-enabled/default
 
 # Create a new configuration file
 cat > /etc/nginx/sites-available/default << EOF
@@ -53,10 +53,6 @@ server {
         alias /data/web_static/current/;
         index index.html;
     }
-
-    server_name _;
-
-    add_header X-Served-By $HOSTNAME;
 }
 EOF
 
