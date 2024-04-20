@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-''' Starts a Flask web application'''
+''' Starts a Flask web app '''
 
 from flask import Flask
 app = Flask(__name__)
@@ -15,6 +15,13 @@ def hello_hbnb():
 def hbnb():
     ''' Displays HBNB '''
     return "HBNB"
+
+@app.route('/c/<text>')
+def ctext(text):
+    ''' Displays C followed by text '''
+    if '_' in text:
+        text = text.replace('_', ' ')
+    return f"C {text}"
 
 
 if __name__ == '__main__':
