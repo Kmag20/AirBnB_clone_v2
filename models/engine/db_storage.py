@@ -47,6 +47,7 @@ class DBStorage:
         for clss in classes:
             if cls is None or cls == classes[clss] or cls == clss:
                 objs = self.__session.query(classes[clss]).all()
+                print('Objs', objs)
                 for obj in objs:
                     key = obj.__class__.__name__ + '.' + obj.id
                     new_dict[key] = obj

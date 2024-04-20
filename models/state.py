@@ -27,7 +27,7 @@ class State(BaseModel, Base):
             """ Getter for list of city instances related to the state """
             from models import storage
             city_list = []
-            all_cities = models.storage.all(City)
+            all_cities = storage.all(City)
             for city in all_cities.values():
                 if city.state_id == self.id:
                     city_list.append(city)
