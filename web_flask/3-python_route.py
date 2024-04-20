@@ -25,8 +25,9 @@ def ctext(text):
     return f"C {text}"
 
 
+@app.route('/python/', strict_slashes=False, defaults={'text': 'is cool'})
 @app.route('/python/<text>', strict_slashes=False)
-def python_text(text='is cool'):
+def python_text(text):
     ''' Displays text in /python path '''
     if '_' in text:
         text = text.replace('_', ' ')
