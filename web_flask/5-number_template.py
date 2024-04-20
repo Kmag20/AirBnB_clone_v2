@@ -40,5 +40,11 @@ def number(n):
     return f"{n} is a number"
 
 
+@app.route('/number_template/<int:n>')
+def number_template(n=None):
+    ''' Display a HTML page if n is an int '''
+    return render_template('number.html', n=n)
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
