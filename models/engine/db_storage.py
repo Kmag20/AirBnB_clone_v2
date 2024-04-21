@@ -31,15 +31,14 @@ class DBStorage:
         HBNB_ENV = getenv('HBNB_ENV')
 
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.
-                                        format(HBNB_MYSQL_USER,
-                                                HBNB_MYSQL_PWD,
-                                                HBNB_MYSQL_HOST,
-                                                HBNB_MYSQL_DB))
-                                            
+                                      format(HBNB_MYSQL_USER,
+                                             HBNB_MYSQL_PWD,
+                                             HBNB_MYSQL_HOST,
+                                             HBNB_MYSQL_DB))
         # drop all tables if the environment variable HBNB_ENV is equal
         #  all(self, cls=None)
         if HBNB_ENV == "test":
-                Base.metadata.drop_all(self.__engine)
+            Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
         """query on the current database session"""
