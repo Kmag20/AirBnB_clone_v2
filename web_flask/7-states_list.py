@@ -10,8 +10,6 @@ sys.path.append(PARENT_DIR)
 from models import storage
 
 
-
-
 app = Flask(__name__)
 
 
