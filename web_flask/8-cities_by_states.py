@@ -1,7 +1,11 @@
 #!/usr/bin/python3
 """Starts a Flask web application"""
-from models import storage
 from flask import Flask, render_template
+import sys
+import os
+PARENT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
+sys.path.append(PARENT_DIR)
+from models import storage
 
 app = Flask(__name__)
 
