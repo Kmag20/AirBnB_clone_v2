@@ -6,6 +6,8 @@ from models import storage
 
 
 app = Flask(__name__)
+
+
 @app.teardown_appcontext
 def teardown(exception):
     ''' Remove current SQLAlchemy session '''
