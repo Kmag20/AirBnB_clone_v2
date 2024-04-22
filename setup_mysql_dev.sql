@@ -7,6 +7,6 @@ GRANT ALL PRIVILEGES ON hbnb_dev_db.* TO 'hbnb_dev'@'localhost';
 FLUSH PRIVILEGES;
 -- giving a SELECT privilege on the database performance_schema
 GRANT SELECT ON performance_schema.* TO 'hbnb_dev'@'localhost';
-FLUSH PRIVILEGES;"
+FLUSH PRIVILEGES;
 -- This is a script that prepares a MYSQL server for the project
 -- A database hbnb_dev_db

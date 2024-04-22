@@ -176,7 +176,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
         key = c_name + "." + c_id
-        # print(key)
+        print(key)
         try:
             print(storage.all(c_name)[key])
         except KeyError:
@@ -343,6 +343,5 @@ class HBNBCommand(cmd.Cmd):
         print("Updates an object with new information")
         print("Usage: update <className> <id> <attName> <attVal>\n")
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     HBNBCommand().cmdloop()
