@@ -24,7 +24,6 @@ class FileStorage:
         key = obj.to_dict()['__class__'] + '.' + obj.id
         FileStorage.__objects.update({key: obj})
 
-
     def save(self):
         """Saves storage dictionary to file"""
         obj = {key: val.to_dict() for key, val in self.__objects.items()}
