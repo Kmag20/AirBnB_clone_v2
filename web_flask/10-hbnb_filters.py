@@ -9,9 +9,10 @@ from flask import Flask
 from flask import render_template
 import sys
 import os
-PARENT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
-sys.path.append(PARENT_DIR)
 from models.__init__ import storage
+path = os.path.join(os.path.dirname(__file__), os.pardir)
+PARENT_DIR = os.path.abspath(path)
+sys.path.append(PARENT_DIR)
 
 app = Flask(__name__)
 
