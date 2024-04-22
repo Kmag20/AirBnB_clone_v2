@@ -15,7 +15,6 @@ PARENT_DIR = os.path.abspath(pathA)
 sys.path.append(PARENT_DIR)
 
 
-
 app = Flask(__name__)
 
 
@@ -34,6 +33,6 @@ def teardown(exception):
     """Remove the current SQLAlchemy session."""
     storage.close()
 
-    
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
